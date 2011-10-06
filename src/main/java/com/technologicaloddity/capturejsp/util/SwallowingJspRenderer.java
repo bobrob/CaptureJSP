@@ -25,7 +25,7 @@ import org.springframework.web.servlet.LocaleResolver;
 public class SwallowingJspRenderer implements ServletContextAware {
 	
 	@Autowired
-	private ViewResolver viewResolver;
+	private TechOddViewResolver viewResolver;
 	
 	private ServletContext servletContext;
 	
