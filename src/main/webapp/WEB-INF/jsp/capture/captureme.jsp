@@ -17,5 +17,7 @@ Here is the value of the model attribute "costMessage" in Euros, formatted for t
 <br>
 Here is the value of the model attribute "costMessage" in Pesos, formatted for the given locale: <fmt:formatNumber type="currency" currencyCode="MXN" value="${costMessage}"/>
 </c:if>
+<br>
+<jsp:include page="/WEB-INF/jsp/capture/captureinclude.jsp"/>
 </body>
 </html>
