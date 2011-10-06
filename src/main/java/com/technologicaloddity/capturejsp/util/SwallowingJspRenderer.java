@@ -1,13 +1,4 @@
-/**
- * (c) 2011 Technological Oddity
- *     http://technologicaloddity.com
- *
- * I, Bob Robinson, the author of this work hereby release it
- * under the Creative Commons-By Attribution 3.0 license for
- * both commercial and non-commercial purposes.
- * See the license at:
- * http://creativecommons.org/licenses/by/3.0/
- */
+
 package com.technologicaloddity.capturejsp.util;
 
 import java.io.IOException;
@@ -30,10 +21,6 @@ import org.springframework.web.context.ServletContextAware;
 import org.springframework.web.servlet.DispatcherServlet;
 import org.springframework.web.servlet.LocaleResolver;
 
-/**
- * @author Bob Robinson, http://technologicaloddity.com
- *
- */
 @Component
 public class SwallowingJspRenderer implements ServletContextAware {
 	
