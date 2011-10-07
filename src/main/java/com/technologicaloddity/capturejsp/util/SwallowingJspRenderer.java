@@ -57,11 +57,11 @@ public class SwallowingJspRenderer implements ServletContextAware {
 		// so that we can create the Swallowing response
 		HttpServletRequest request = new MockIncludedHttpServletRequest();		
 		HttpServletResponse response = new MockHttpServletResponse();
-		HttpServletResponse fakeResponse = new SwallowingHttpServletResponse(response, sout, response.getCharacterEncoding());
+		HttpServletResponse swallowingResponse = new SwallowingHttpServletResponse(response, sout, response.getCharacterEncoding());
 
 		// Use our own LocaleResolver here, or Spring will try to meddle with it
 		LocaleResolver localeResolver = new JspLocaleResolver();
-		localeResolver.setLocale(request, fakeResponse, locale);
+		localeResolver.setLocale(request, swallowingResponse, locale);
 		
 		try {			
 			//Add the modelMap to the request as attributes
@@ -76,15 +76,15 @@ public class SwallowingJspRenderer implements ServletContextAware {
 			request.setAttribute(Config.FMT_LOCALE, locale);
 			
 			// Make sure we are using UTF-8 for the rendered JSP
-			fakeResponse.setContentType("text/html; charset=utf-8");
-			fakeResponse.setCharacterEncoding("UTF-8");
+			swallowingResponse.setContentType("text/html; charset=utf-8");
+			swallowingResponse.setCharacterEncoding("UTF-8");
 			
 			// "include" the file (but not really an include) with the dispatcher
 			// The resulting rendering will come out in swallowing response,
 			// via sbuffer
 			RequestDispatcher dispatcher = servletContext.getRequestDispatcher(viewResolver.urlForView(viewName));
 			
-			dispatcher.include(request, fakeResponse);
+			dispatcher.include(request, swallowingResponse);
 			
 			result = sbuffer.toString();
 		} catch(Exception e) {
