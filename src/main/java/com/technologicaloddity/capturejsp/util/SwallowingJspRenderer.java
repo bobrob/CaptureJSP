@@ -57,7 +57,7 @@ public class SwallowingJspRenderer implements ServletContextAware {
 		// so that we can create the Swallowing response
 		HttpServletRequest request = new MockIncludedHttpServletRequest();		
 		HttpServletResponse response = new MockHttpServletResponse();
-		HttpServletResponse swallowingResponse = new SwallowingHttpServletResponse(response, sout, response.getCharacterEncoding());
+		HttpServletResponse swallowingResponse = new SwallowingHttpServletResponse(response, sout, "UTF-8");
 
 		// Use our own LocaleResolver here, or Spring will try to meddle with it
 		LocaleResolver localeResolver = new JspLocaleResolver();
@@ -77,7 +77,6 @@ public class SwallowingJspRenderer implements ServletContextAware {
 			
 			// Make sure we are using UTF-8 for the rendered JSP
 			swallowingResponse.setContentType("text/html; charset=utf-8");
-			swallowingResponse.setCharacterEncoding("UTF-8");
 			
 			// "include" the file (but not really an include) with the dispatcher
 			// The resulting rendering will come out in swallowing response,
