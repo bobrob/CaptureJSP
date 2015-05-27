@@ -1,7 +1,7 @@
 CaptureJSP
 by Bob Robinson for TechnologicalOddity.com
 
-The tutorial for this package can be found at http://technologicaloddity.com
+The tutorial for this package can be found at http://technologicaloddity.com/2011/10/04/render-and-capture-the-output-of-a-jsp-as-a-string/
 
 This tutorial shows how to render a JSP, capture the output as a String, all without
 having a real request.  It uses Spring 3.  JSPs can handle includes, localization,
