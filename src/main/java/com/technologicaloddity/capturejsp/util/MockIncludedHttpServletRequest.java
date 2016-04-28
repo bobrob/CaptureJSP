@@ -10,6 +10,7 @@ public class MockIncludedHttpServletRequest extends MockHttpServletRequest {
 	
 	public MockIncludedHttpServletRequest() {
 		super();
+		this.setMethod(HttpMethod.GET.name());
 	}
 	
 	public DispatcherType getDispatcherType() {		
